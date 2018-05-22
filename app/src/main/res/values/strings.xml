@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Perpule Assignment</string>
+    <string name="btn_start">Start</string>
+    <string name="error_str">Something went wrong</string>
+    <string name="cancel_str">Cancel</string>
+    <string name="download_failed">Download failed</string>
+    <string name="downloading_str">Downloading ...</string>
+    <string name="offline_str">Internet connection not found</string>
+    <string name="last_track">That was last track</string>
+    <string name="need_permission_str">Need Permissions</string>
+    <string name="goto_settings_str">GOTO SETTINGS</string>
+    <string name="splash_permission_str">Storage permission required. Enable it manually from settings</string>
+    <string name="app_needs_permission_str">This app needs permission to use this feature. You can grant them in app settings.</string>
+</resources>
