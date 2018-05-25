@@ -10,6 +10,9 @@ import org.junit.Test;
 import io.reactivex.subscribers.TestSubscriber;
 import perpule.shahbaz.interview.models.Mp3Response;
 import perpule.shahbaz.interview.network.NetworkClient;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SplashPresenterTest {
 
@@ -26,8 +29,17 @@ public class SplashPresenterTest {
     @Test
     public void serverCallWithError() {
         //Given
+
+        //Given
+        String url = "https://abcd/";
         mMockWebServer.enqueue(new MockResponse().setBody(new Gson().toJson(mp3Response)));
-        RemoteDataSource remoteDataSource = new RemoteDataSource(NetworkClient.getRetrofit());
+        Retrofit retrofit = new Retrofit.Builder()
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(url)
+                .build();
+
+        RemoteDataSource remoteDataSource = new RemoteDataSource(retrofit);
 
         //When
         remoteDataSource.getMp3s().subscribe(mSubscriber);
